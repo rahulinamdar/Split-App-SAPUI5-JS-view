@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "Demo",
+        "description": "Demo To routing",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#Demo-Display",
+        "navigationComponentName": "sap.ui.Demo",
+        "intentSemanticObject": "Demo",
+        "intentAction": "Display",
+        "html5ApplicationName": "demo",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "00000000-0000-1111-0000-00000000"
+        ],
+        "contentPackages": [
+            "00000000-0000-2222-0000-00000000"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Tutorial",
+        "subtitle": "Routing",
+        "searchKeywords": "Tutorial,Routing",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

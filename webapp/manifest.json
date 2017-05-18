@@ -1,0 +1,158 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "sap.ui.Demo",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "sap.ui.Demo.view.App",
+			"type": "JS"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"handleValidation":true,
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ui.Demo.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "JS",
+				"viewPath": "sap.ui.Demo.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "splitApp",
+					"name": "appHome",
+					"target": "home"
+				},
+				{
+					"pattern": "new/{id}",
+					"name": "new",
+					"target": "new"
+				},
+				{
+					"pattern": "",
+					"name": "splitApp",
+					"target": [
+						"master",
+						"detail"
+					]
+				},
+				{
+					"pattern": "splitApp/detail",
+					"name": "detail",
+					"target": "new1"
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "home",
+					"viewLevel": 1
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"new": {
+					"viewName": "New",
+					"transition": "flip"
+				},
+				"parentSplitApp": {
+					"viewPath": "sap.ui.Demo.view",
+					"viewName": "splitApp",
+					"viewId": "mySplitApp"
+				},
+				"master": {
+					"parent": "parentSplitApp",
+					"viewName": "masterView",
+					"viewId": "masterView",
+					"controlId": "mySplitApp",
+					"controlAggregation": "masterPages"
+				},
+				"detail": {
+					"parent": "parentSplitApp",
+					"viewName": "detailView",
+					"viewId": "detailView",
+					"controlId": "mySplitApp",
+					"controlAggregation": "detailPages"
+				},
+				"new1": {
+					"parent": "parentSplitApp",
+					"viewName": "New",
+					"controlId": "mySplitApp",
+					"controlAggregation": "detailPages"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				},
+				{
+					"uri": "css/style1.css"
+				}
+			]
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
